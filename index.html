@@ -23,7 +23,7 @@
 <body>
     <style>
         body {
-            background-color: rgb(207, 228, 207);
+            /* background-color: rgb(207, 228, 207); */
         }
 
         .size-box {
@@ -71,6 +71,36 @@
             width: 100%;
             height: 100%;
         }
+
+        /* Make tabs scrollable horizontally on smaller screens */
+        .tab-scroll-container {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav-tabs {
+            display: inline-flex;
+            flex-wrap: nowrap;
+        }
+
+        .nav-tabs .nav-item {
+            flex-shrink: 0;
+            /* Prevent tabs from shrinking in mobile view */
+        }
+
+        /* Optional: Add spacing and alignment */
+        .nav-tabs .nav-link {
+            margin-right: 5px;
+        }
+
+        @media (min-width: 768px) {
+
+            /* On larger screens, display tabs normally without scrolling */
+            .tab-scroll-container {
+                overflow-x: visible;
+            }
+        }
+
 
 
         #mainImage {
@@ -160,27 +190,39 @@
         <!-- Product Description and Reviews -->
         <div class="row mt-5">
             <div class="col-12">
-                <ul class="nav nav-tabs" id="productTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">Description</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab">Reviews</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video" type="button" role="tab">Demonstration Video</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features" type="button" role="tab">Features & Benefits</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="recommendations-tab" data-bs-toggle="tab" data-bs-target="#recommendations" type="button" role="tab">Recommendations</button>
-                    </li>
-                </ul>
+                <!-- Scrollable Tab Titles -->
+                <div class="tab-scroll-container">
+                    <ul class="nav nav-tabs" id="productTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                data-bs-target="#description" type="button" role="tab">Description</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
+                                type="button" role="tab">Reviews</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video"
+                                type="button" role="tab">Demonstration Video</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features"
+                                type="button" role="tab">Features & Benefits</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="recommendations-tab" data-bs-toggle="tab"
+                                data-bs-target="#recommendations" type="button" role="tab">Recommendations</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab Content -->
                 <div class="tab-content mt-3" id="productTabContent">
-                    <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                    <div class="tab-pane fade show active" id="description" role="tabpanel"
+                        aria-labelledby="description-tab">
                         <h5>Product Description</h5>
-                        <p>Product description goes here. It gives details about the product, features, and specifications.</p>
+                        <p>Product description goes here. It gives details about the product, features, and
+                            specifications.</p>
                     </div>
                     <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                         <h5>Customer Reviews</h5>
@@ -189,7 +231,8 @@
                     <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
                         <h5>Product Demonstration Video</h5>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0"
+                                allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="features-tab">
@@ -197,24 +240,23 @@
                         <ul>
                             <li>Feature 1: Brief description of feature 1.</li>
                             <li>Feature 2: Brief description of feature 2.</li>
-                            <li>Feature 3: Brief description of feature 3.</li>
                             <li>Benefit 1: Brief description of benefit 1.</li>
-                            <li>Benefit 2: Brief description of benefit 2.</li>
                         </ul>
                     </div>
-                    <div class="tab-pane fade" id="recommendations" role="tabpanel" aria-labelledby="recommendations-tab">
+                    <div class="tab-pane fade" id="recommendations" role="tabpanel"
+                        aria-labelledby="recommendations-tab">
                         <h5>Recommendations</h5>
                         <p>We recommend pairing this product with:</p>
                         <ul>
                             <li>Recommended Product 1</li>
                             <li>Recommended Product 2</li>
-                            <li>Recommended Product 3</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        
+
+
 
     </div>
 
