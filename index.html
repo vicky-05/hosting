@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail Page</title>
+    <link rel="stylesheet" href="product.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 
@@ -12,149 +13,25 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Music&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Znamenny+Musical+Notation&family=Playpen+Sans:wght@100..800&family=Protest+Guerrilla&display=swap"
         rel="stylesheet">
 </head>
-
-<body>
-    <style>
-        body {
-            user-select: none;
-        }
-
-        .size-box {
-            border: 2px solid green;
-            border-radius: 5px;
-            padding: 10px 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            margin-bottom: 10px;
-            /* Space between boxes */
-        }
-
-        .size-box:hover {
-            background-color: green;
-            color: white;
-            font-weight: bold;
-            /* Light green background on hover */
-        }
-
-        .size-box.selected {
-            background-color: green;
-            /* Fill color for selected box */
-            color: #fff;
-            /* Text color for selected box */
-        }
-
-        .product-thumbnail {
-            cursor: pointer;
-            width: 80px;
-            height: 80px;
-            margin-right: 5px;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Make tabs scrollable horizontally on smaller screens */
-        .tab-scroll-container {
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        .nav-tabs {
-            display: inline-flex;
-            flex-wrap: nowrap;
-        }
-
-        .nav-tabs .nav-item {
-            flex-shrink: 0;
-            /* Prevent tabs from shrinking in mobile view */
-        }
-
-        /* Optional: Add spacing and alignment */
-        .nav-tabs .nav-link {
-            margin-right: 5px;
-            color: black;
-        }
-
-        .nav-tabs .nav-link.active {
+<style>
+    .nav-tabs .nav-link.active{
             color: green;
             background-color: transparent;
             /* border-color: transparent; */
             border-bottom: 2px solid green;
             border-radius: 0;
             font-weight: bold;
-
-
         }
-
-        @media (min-width: 768px) {
-
-            /* On larger screens, display tabs normally without scrolling */
-            .tab-scroll-container {
-                overflow-x: visible;
-            }
-        }
-
-        .rate {
-            font-weight: bold;
-        }
-
-        /* Review Card Styling */
-        .review-card {
-            background-color: #f9f9f9;
-        }
-
-        /* Star Rating Styling */
-        .star-rating {
-            color: #ffc107;
-            /* Bootstrap's default warning color for stars */
-            font-size: 1.2em;
-            /* Increase star size */
-        }
-
-        .hidden-review {
-            display: none;
-        }
-
-        .star {
-            font-size: 2em;
-            /* Adjust size as needed */
-            color: #e4e5e9;
-            /* Gray color for unselected stars */
-            cursor: pointer;
-        }
-
-        .star:hover {
-            color: #ffc107;
-            /* Yellow color on hover */
-        }
-
-
-
-        #mainImage {
-            max-height: 500px;
-        }
-    </style>
+</style>
+<body>
+    
     <div class="container my-5">
         <div class="row">
             <!-- Product Image Section -->
@@ -174,15 +51,15 @@
                     aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        <li class="breadcrumb-item active" aria-current="page">Product</li>
                     </ol>
                 </nav>
-                <h2 style="font-family: Noto Sans, sans-serif;">Product Name</h2>
+                <h2 class="product-name">Product Name</h2>
                 <span class="badge text-bg-secondary">Category</span>
-                <h4 style="font-weight:bolder;">$99.99</h4>
-                <s class="mrp-prices" style="color: grey;">M.R.P:199.00</s>
+                <h4 class="selling-price">₹99.99</h4>
+                <s class="mrp-prices">M.R.P:₹199.00</s>
                 <br>
-                <span class="badge text-bg-success" style="font-size: 16px;">In stock</span>
+                <span class="badge text-bg-success in-stock">In stock</span>
                 <div class="product-units">
                     <h6>Select Size:</h6>
                     <div class="row">
@@ -201,7 +78,7 @@
 
                 <div class="me-3">
                     <label for="quantity" class="form-label">Quantity:</label>
-                    <input type="number" class="form-control " style="width: 100px; width: 150px !important;"
+                    <input type="number" class="form-control qty-btn"
                         id="quantity" value="1" min="1">
                 </div>
 
@@ -209,19 +86,19 @@
                 <div class="d-flex mx-4 mb-4 mt-4">
                     <!-- Visit Our Store -->
                     <div class="text-center me-5">
-                        <i class="bi bi-geo-alt" style="font-size: 2rem; color: #007bff;"></i> <!-- Larger Icon -->
+                        <i class="bi bi-geo-alt"></i> <!-- Larger Icon -->
                         <p class="mb-0 fw-bold ">Visit Our Store</p> <!-- Larger Title -->
                     </div>
 
                     <!-- In-Store Assistance -->
                     <div class="text-center me-5">
-                        <i class="bi bi-person-check" style="font-size: 2rem; color: #28a745;"></i> <!-- Larger Icon -->
+                        <i class="bi bi-person-check"></i> <!-- Larger Icon -->
                         <p class="mb-0 fw-bold ">In-Store Assistance</p> <!-- Larger Title -->
                     </div>
 
                     <!-- Exclusive Deals -->
                     <div class="text-center">
-                        <i class="bi bi-tag" style="font-size: 2rem; color: #ff9900;"></i> <!-- Larger Icon -->
+                        <i class="bi bi-tag"></i> <!-- Larger Icon -->
                         <p class="mb-0 fw-bold ">Exclusive Deals</p> <!-- Larger Title -->
                     </div>
                 </div>
@@ -403,60 +280,11 @@
 
 
 
-    <script src="script.js"></script>
+    <script src="product.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script>
-        function selectUnit(button) {
-            // Remove 'selected' class from all buttons
-            const unitButtons = document.querySelectorAll('.unit-btn');
-            unitButtons.forEach(btn => btn.classList.remove('selected'));
-
-            // Add 'selected' class to the clicked button
-            button.classList.add('selected');
-        }
-        document.getElementById('viewAllReviewsBtn').addEventListener('click', function () {
-            const hiddenReviews = document.querySelectorAll('.hidden-review');
-            hiddenReviews.forEach(review => review.style.display = 'block');
-            this.style.display = 'none'; // Hide the button after showing all reviews
-        });
-        function changeImage(thumbnail) {
-            document.getElementById('mainImage').src = thumbnail.src;
-        }
-        let selectedRating = 0;
-
-        function setRating(rating) {
-            selectedRating = rating;
-            document.getElementById('ratingValue').value = rating;
-            const stars = document.querySelectorAll('.star');
-            stars.forEach((star, index) => {
-                star.style.color = index < rating ? '#ffc107' : '#e4e5e9'; // Yellow for selected stars, gray for unselected
-            });
-        }
-
-        function submitRating() {
-            const feedback = document.getElementById('feedback').value;
-            const imageInput = document.getElementById('productImage').files[0];
-
-            if (selectedRating === 0 || !feedback) {
-                alert('Please provide a rating and feedback.');
-                return;
-            }
-
-            // Here you can handle form submission, e.g., send data to a server or store it
-            alert(`Rating: ${selectedRating} stars\nFeedback: ${feedback}\nImage: ${imageInput ? imageInput.name : 'No image uploaded'}`);
-
-            // Close the modal after submission
-            $('#rateProductModal').modal('hide');
-            document.getElementById('ratingForm').reset();
-            selectedRating = 0; // Reset rating
-            setRating(0); // Reset stars
-        }
-
-
-
-    </script>
+    
 </body>
 
 </html>

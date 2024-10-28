@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+    <h4 class="about-heading">Cart <b class="text-uppercase text-success">Items</b></h4>
+
+    <div class="container my-5">
+
+        <div class="row">
+            <!-- Cart Items (Left Column) -->
+            <div class="col-lg-8" id="productSection">
+                <div class="empty-cart d-none" id="emptyCartMessage">
+                    <img src="empty-cart-4615794-3822062-removebg-preview.png" alt="Empty Cart Image">
+                    <h4>Your cart is currently empty.</h4>
+                    <p>Browse our products and add items to your cart!</p>
+                    <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+                </div>
+
+                <div id="cartItems">
+                    <!-- Example Product Item -->
+                    <div class="row cart-item align-items-center">
+                        <div class="col-md-2">
+                            <img src="monostar.png" alt="Product Image" class="img-fluid">
+                        </div>
+                        <div class="col-md-3">
+                            <h5>Monostart(Monocrotophos 36EC)</h5>
+                            <p>₹299.99</p>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" class="form-control quantity" value="1" min="1"
+                                onchange="updateTotal()">
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <span class="item-total">₹399.99</span>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <button class="btn btn-danger btn-sm" onclick="removeItem(this)"><i class="bi bi-trash me-2"></i>Remove</button>
+                        </div>
+                    </div>
+                    <div class="row cart-item align-items-center">
+                        <div class="col-md-2">
+                            <img src="roundup.png" alt="Product Image" class="img-fluid">
+                        </div>
+                        <div class="col-md-3">
+                            <h5>RoundUp</h5>
+                            <p>₹499.99</p>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" class="form-control quantity" value="1" min="1"
+                                onchange="updateTotal()">
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <span class="item-total">₹799.99</span>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <button class="btn btn-danger btn-sm" onclick="removeItem(this)"><i class="bi bi-trash me-2"></i>Remove</button>
+                        </div>
+                    </div>
+                    <!-- Repeat similar cart-item divs for additional products -->
+                </div>
+            </div>
+
+            <!-- Cart Summary (Right Column) -->
+            <div class="col-lg-4 mb-4">
+                <div class="cart-summary">
+                    <h4 class="summary-title">Cart Summary</h4>
+                    <p>Subtotal: <span id="subtotal">$99.99</span></p>
+                    <p>Tax: <span id="tax">$0.00</span></p>
+                    <p class="cart-total">Total: <span id="total">$99.99</span></p>
+                    <button class="btn btn-success btn-lg w-100 mt-3">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cart.js"></script>
+
+</body>
+
+</html>
