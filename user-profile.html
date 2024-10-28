@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .edit-button {
+            text-align: center;
+        }
+        @media (max-width: 576px) {
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container profile-container">
+    <h2 class="text-center">User Profile</h2>
+
+    <!-- Profile Image Section -->
+    <div class="text-center my-4">
+        <img src="OIP.jfif" alt="Profile Image" class="profile-image mb-2" id="profileImage">
+        <div>
+            <input type="file" id="profileImageInput" class="form-control d-inline-block w-auto" accept="image/*" onchange="updateProfileImage()" disabled>
+        </div>
+    </div>
+
+    <!-- User Information Form -->
+    <form>
+        <div class="mb-3">
+            <label for="userName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="userName" value="John Doe" disabled>
+        </div>
+
+        <div class="mb-3">
+            <label for="userAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="userAddress" value="123 Main Street, City, Country" disabled>
+        </div>
+
+        <div class="mb-3">
+            <label for="userMobile" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" id="userMobile" value="123-456-7890" disabled>
+        </div>
+
+        <div class="mb-3">
+            <label for="userEmail" class="form-label">Email ID</label>
+            <input type="email" class="form-control" id="userEmail" value="john.doe@example.com" disabled>
+        </div>
+
+        <div class="edit-button mb-3">
+            <button type="button" class="btn btn-primary" id="editProfileBtn" onclick="enableEdit()">Edit Profile</button>
+            <button type="button" class="btn btn-success d-none" id="saveProfileBtn" onclick="saveProfile()">Save Changes</button>
+            <div class="mt-2">
+                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Change Password?</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Change Password Modal -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm">
+                    <div class="mb-3">
+                        <label for="oldPassword" class="form-label">Old Password</label>
+                        <input type="password" class="form-control" id="oldPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="newPassword" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="newPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="changePassword()">Change Password</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Function to enable editing
+    function enableEdit() {
+        document.getElementById('userName').disabled = false;
+        document.getElementById('userAddress').disabled = false;
+        document.getElementById('userMobile').disabled = false;
+        document.getElementById('userEmail').disabled = false;
+        document.getElementById('profileImageInput').disabled = false;
+
+        document.getElementById('editProfileBtn').classList.add('d-none');
+        document.getElementById('saveProfileBtn').classList.remove('d-none');
+    }
+
+    // Function to update profile image preview
+    function updateProfileImage() {
+        const fileInput = document.getElementById('profileImageInput');
+        const profileImage = document.getElementById('profileImage');
+        const file = fileInput.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profileImage.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // Function to save profile changes (mock implementation)
+    function saveProfile() {
+        document.getElementById('userName').disabled = true;
+        document.getElementById('userAddress').disabled = true;
+        document.getElementById('userMobile').disabled = true;
+        document.getElementById('userEmail').disabled = true;
+        document.getElementById('profileImageInput').disabled = true;
+
+        document.getElementById('editProfileBtn').classList.remove('d-none');
+        document.getElementById('saveProfileBtn').classList.add('d-none');
+
+        alert("Profile saved successfully.");
+    }
+
+    // Function to change password (mock implementation)
+    function changePassword() {
+        const oldPassword = document.getElementById('oldPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (newPassword !== confirmPassword) {
+            alert("New passwords do not match.");
+            return;
+        }
+
+        // Implement password change logic here
+
+        alert("Password changed successfully.");
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('changePasswordModal'));
+        modal.hide();
+        document.getElementById('changePasswordForm').reset();
+    }
+</script>
+
+</body>
+</html>
