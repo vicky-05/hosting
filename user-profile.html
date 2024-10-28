@@ -26,12 +26,38 @@
                 height: 100px;
             }
         }
+        .about-heading {
+            color: #000;
+            font-size: 26px;
+            font-weight: 300;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            /* margin: 45px; */
+        }
+
+        .about-heading b {
+            color: #ffc000;
+        }
+
+        .about-heading::after {
+            content: "";
+            width: 100px;
+            position: absolute;
+            margin: 0 auto;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.2);
+            left: 0;
+            right: 0;
+            bottom: -20px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
 <div class="container profile-container">
-    <h2 class="text-center">User Profile</h2>
+    <h4 class="about-heading">User <b class="text-uppercase text-success">Profile</b></h4>
 
     <!-- Profile Image Section -->
     <div class="text-center my-4">
