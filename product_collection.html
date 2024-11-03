@@ -27,6 +27,62 @@
             border-radius: 50%;
             cursor: pointer;
         }
+        .card  {
+            /* overflow: hidden; */
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    /* Hover effect: Scale and shadow increase */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-top {
+            width: 100%;
+            height: 150px; /* Adjust height to your preference */
+            object-fit: contain;
+            
+        }
+        .offer-badge {
+        position: absolute;
+        top: -10px; /* Positioning it above the image */
+        left: 15px; /* Adjust to your preference */
+        background-color: #ff5733;
+        color: #fff;
+        padding: 5px 10px; /* Padding for better fit */
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        z-index: 1; /* Ensures the badge is above the image */
+        }
+        .card-title {
+        white-space: nowrap; /* Prevents wrapping */
+        overflow: hidden; /* Hides overflow */
+        text-overflow: ellipsis; /* Adds ellipsis */
+        max-width: 100%; /* Ensures it doesn't exceed the card width */
+        }
+       
+
+        .current-price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #28a745; /* Green color */
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            margin-left: 8px;
+            font-size: 0.8rem;
+        }
+        .save-amount {
+            color: #28a745;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
 </style>
 <body>
 
@@ -112,16 +168,91 @@
         <div class="col-md-9">
             <div class="row">
                 <!-- Example Product Card -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
+                <div class="col-6 col-md-4 mb-4">
+                    <div class="card position-relative">
+                        <div class="offer-badge">20% OFF
+                        </div>
                         <img src="roundup.png" class="card-img-top" alt="Product Image">
                         <div class="card-body">
-                            <h5 class="card-title">Product Name</h5>
-                            <p class="card-text">Brand Name</p>
-                            <p class="card-text">₹199</p>
+                            <h5 class="card-title mb-0 ">Product Name</h5>
+                            <p class="card-text mb-1 text-muted">Brand Name</p>
+                            <p class="card-price mb-2">
+                                <span class="current-price">₹983</span>
+                                <span class="original-price">₹1450</span>
+                            </p>
+                            <p class="save-amount">You Save ₹467</p>
                             <a href="#" class="btn btn-success w-100">View Product</a>
                         </div>
                     </div>
+                    
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <div class="card">
+                        <div class="offer-badge">10% OFF</div>
+                        <img src="Image/Aspee-1.png" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Product Name vwdvwjibwvwb wdn hwuwdhfc</h5>
+                            <p class="card-text mb-1 text-muted">Brand Name</p>
+                            <p class="card-price mb-2">
+                                <span class="current-price">₹983</span>
+                                <span class="original-price">₹1450</span>
+                            </p>
+                            <p class="save-amount">You Save ₹467</p>
+                            <a href="#" class="btn btn-success w-100">View Product</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <div class="card">
+                        <div class="offer-badge">70% OFF</div>
+                        <img src="Image/Biovita X-1.png" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Product Name</h5>
+                            <p class="card-text mb-1 text-muted">Brand Name</p>
+                            <p class="card-price mb-2">
+                                <span class="current-price">₹983</span>
+                                <span class="original-price">₹1450</span>
+                            </p>
+                            <p class="save-amount">You Save ₹467</p>
+                            <a href="#" class="btn btn-success w-100">View Product</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <div class="card">
+                        <div class="offer-badge">50% OFF</div>
+                        <img src="Image/Coragen-2.png" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Product Name</h5>
+                            <p class="card-text mb-1 text-muted">Brand Name</p>
+                            <p class="card-price mb-2">
+                                <span class="current-price">₹983</span>
+                                <span class="original-price">₹1450</span>
+                            </p>
+                            <p class="save-amount">You Save ₹467</p>
+                            <a href="#" class="btn btn-success w-100">View Product</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <div class="card">
+                        <div class="offer-badge">40% OFF</div>
+                        <img src="Image/Fanta_Plus-1.png" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Product Name</h5>
+                            <p class="card-text mb-1 text-muted">Brand Name</p>
+                            <p class="card-price mb-2">
+                                <span class="current-price">₹983</span>
+                                <span class="original-price">₹1450</span>
+                            </p>
+                            <p class="save-amount">You Save ₹467</p>
+                            <a href="#" class="btn btn-success w-100">View Product</a>
+                        </div>
+                    </div>
+                    
                 </div>
                 <!-- Repeat for more products -->
             </div>
